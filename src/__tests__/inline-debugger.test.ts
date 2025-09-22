@@ -18,8 +18,16 @@ describe('Inline Debugger', () => {
     // Get debug data
     const debugData = global.inlineDebugger.getData();
     
+    // Convert absolute paths to relative paths for consistent snapshots
+    const normalizedData = debugData.map(item => ({
+      ...item,
+      filePath: item.filePath.startsWith(process.cwd()) 
+        ? item.filePath.replace(process.cwd() + '/', '')
+        : item.filePath
+    }));
+    
     // Snapshot the debug data
-    expect(debugData).toMatchSnapshot();
+    expect(normalizedData).toMatchSnapshot();
     
     // Verify the result structure
     expect(result).toHaveProperty('math');
