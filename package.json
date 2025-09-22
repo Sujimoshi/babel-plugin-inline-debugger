@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-inline-debugger",
-  "version": "1.0.0",
+  "version": "0.0.0-auto",
   "description": "A Babel plugin for selective expression monitoring and debugging in TypeScript projects",
   "main": "dist/babel-plugin-inline-debugger.js",
   "types": "dist/babel-plugin-inline-debugger.d.ts",
