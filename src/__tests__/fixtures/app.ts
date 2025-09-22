@@ -2,8 +2,14 @@
  * Main application with inline debugging
  */
 
-import { add, multiply, power, calculateArea, calculatePerimeter } from './math';
-import { formatUser, validateUser, createUser, User } from './user';
+import {
+  add,
+  multiply,
+  power,
+  calculateArea,
+  calculatePerimeter,
+} from "./math";
+import { formatUser, validateUser, createUser, User } from "./user";
 
 export interface AppResult {
   math: {
@@ -24,44 +30,47 @@ export interface AppResult {
 
 export async function runApp(): Promise<AppResult> {
   // Math operations
-  const a = 5; //?
-  const b = 3; //?
-  
-  const sum = add(a, b); //?
-  const product = multiply(a, b); //?
+  const a = 5;
+  const b = 3;
+
+  const sum = add(a, b);
+  const product = multiply(a, b);
   const powerResult = power(a, b); //?
-  
-  console.log('Math results:', { sum, product, powerResult }); //?
-  
+
+  console.log("Math results:", { sum, product, powerResult }); //?
+
   // Geometry calculations
-  const length = 10; //?
-  const width = 5; //?
-  
-  const area = calculateArea(length, width); //?
-  const perimeter = calculatePerimeter(length, width); //?
-  
-  console.log('Area calculations:', { area, perimeter }); //?
-  
+  const length = 10;
+  const width = 5;
+
+  const area = calculateArea(length, width);
+  const perimeter = calculatePerimeter(length, width);
+
+  console.log("Area calculations:", { area, perimeter });
+
   // User operations
-  const user: User = { name: 'John', age: 25 };
-  const formatted = formatUser(user); //?
-  const isValid = validateUser(user); //?
-  
-  console.log('User operations:', { formatted, isValid }); //?
-  
+  const user: User = {
+    name: "John",
+    age: 25,
+  };
+  const formatted = formatUser(user);
+  const isValid = validateUser(user);
+
+  console.log("User operations:", { formatted, isValid });
+
   // Error handling
-  let errorMessage = '';
+  let errorMessage = "";
   try {
-    createUser('', 30); //?
+    createUser("", 30);
   } catch (error) {
     errorMessage = (error as Error).message;
-    console.log('Caught error:', errorMessage); //?
+    console.log("Caught error:", errorMessage);
   }
-  
+
   return {
     math: { sum, product, powerResult },
     geometry: { area, perimeter },
     user: { formatted, isValid },
-    error: errorMessage
+    error: errorMessage,
   };
 }

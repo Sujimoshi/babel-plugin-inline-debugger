@@ -17,15 +17,18 @@ export function validateUser(user: User): boolean {
 
 export function createUser(name: string, age: number): User {
   if (!name) {
-    throw new Error('Name is required'); //?
+    throw new Error("Name is required"); //?
   }
-  
-  return { name, age };
+
+  return { name, age }; //?
 }
 
-export function getUserInfo(user: User): { formatted: string; isValid: boolean } {
+export function getUserInfo(user: User): {
+  formatted: string;
+  isValid: boolean;
+} {
   const formatted = formatUser(user);
   const isValid = validateUser(user);
-  
-  return { formatted, isValid }; //?
+
+  return { formatted, isValid };
 }
